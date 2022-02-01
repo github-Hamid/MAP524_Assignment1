@@ -67,9 +67,30 @@ public class Calculator {
                 secondOperand = Integer.parseInt(elements.get(2));
                 switch (operation)
                 {
-                    case "+" : {result = firstOperand + secondOperand; break;}
-                    case "*" : {result = firstOperand * secondOperand; break;}
-                    case "-" : {result = firstOperand - secondOperand; break;}
+                    case "+" : {
+                        if(firstOperand + secondOperand > Integer.MAX_VALUE || firstOperand + secondOperand < Integer.MIN_VALUE)
+                        {
+                            elements.clear();
+                            throw new ArithmeticException("Error result is out of range!");
+                        }
+                        result = firstOperand + secondOperand; break;
+                    }
+                    case "*" : {
+                        if(firstOperand * secondOperand > Integer.MAX_VALUE || firstOperand * secondOperand < Integer.MIN_VALUE)
+                        {
+                            elements.clear();
+                            throw new ArithmeticException("Error result is out of range!");
+                        }
+                        result = firstOperand * secondOperand; break;
+                    }
+                    case "-" : {
+                        if(firstOperand - secondOperand > Integer.MAX_VALUE || firstOperand - secondOperand < Integer.MIN_VALUE)
+                        {
+                            elements.clear();
+                            throw new ArithmeticException("Error result is out of range!");
+                        }
+                        result = firstOperand - secondOperand; break;
+                    }
                     case "/" : {
                         if(secondOperand == 0)
                         {
@@ -80,7 +101,14 @@ public class Calculator {
                         result = firstOperand / secondOperand; break;
                     }
                     case "%" : {result = firstOperand % secondOperand;break;}
-                    case "POW" : {result = (int) Math.pow(firstOperand, secondOperand);break;}
+                    case "POW" : {
+                        if(Math.pow(firstOperand, secondOperand) > Integer.MAX_VALUE || Math.pow(firstOperand, secondOperand) < Integer.MIN_VALUE)
+                        {
+                            elements.clear();
+                            throw new ArithmeticException("Error result is out of range!");
+                        }
+                        result = (int) Math.pow(firstOperand, secondOperand);break;
+                    }
                     case "MAX" : {result = Math.max(firstOperand, secondOperand);break;}
                     case "MIN" : {result = Math.min(firstOperand, secondOperand); break;}
                 }
