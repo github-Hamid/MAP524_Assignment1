@@ -1,3 +1,12 @@
+/*
+ * Name : Hamid Abdolrahimi
+ * ID# : 145059192
+ * Section : MAP524NSA
+ * I have modified this file after the recording of the video. Modification is related to validation
+ * part in order to check the result to be in the range of Integer type. Therefore, there is a little
+ * differences between Calculator.java file in the video and submitted file
+ * */
+
 package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
